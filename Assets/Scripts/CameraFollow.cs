@@ -6,6 +6,10 @@ public class CameraFollow : MonoBehaviour {
 
 	private Vector3 pivot;
 	private Vector3 aim;
+
+	private Vector3 shakeDir;
+	private float shakeProgress;
+
 	public void Awake() {
 		pivot = Follow.position;
 	}
@@ -24,5 +28,18 @@ public class CameraFollow : MonoBehaviour {
 			+ (Vector3.up * 18f - Vector3.forward * 12);
 		//+ Vector3.up * (position.z <= 0 ? -position.z : 0) * 0.25f;
 		transform.LookAt(position);
+
+		transform.position += shakeDir * Mathf.Sin(shakeProgress * 12 * Mathf.PI) * (0.3f-shakeProgress) * 3;
+
+		if (shakeProgress < 0.3f) {
+			shakeProgress += Time.deltaTime;
+		} else {
+			shakeProgress = 0.3f;
+		}
+	}
+
+	public void SetShake(Vector3 Direction) {
+		shakeDir = Direction;
+		shakeProgress = 0;
 	}
 }

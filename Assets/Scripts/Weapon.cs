@@ -5,6 +5,8 @@ using UnityEngine;
 public class Weapon : MonoBehaviour {
 	WeaponExit[] ExitPoints;
 
+	public float Kickback;
+
 	public virtual void Awake() {
 		ExitPoints = transform.GetComponentsInChildren<WeaponExit>();
 	}

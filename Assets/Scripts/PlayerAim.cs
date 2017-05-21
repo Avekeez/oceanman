@@ -18,19 +18,20 @@ public class PlayerAim : MonoBehaviour {
 	}
 
 	void Update() {
+		for (int i = 0; i < 2; i ++) {
+			Weapons[i] = WeaponMounts[i].GetComponentInChildren<Weapon>();
+		}
 		Vector3? result = Camera.main.MousePos(mask);
 		if(result != null) {
 			Position = result.Value;
-			print(Position.y);
 		}
 		Vector3 flatPos = Position;
 		flatPos.y = 0;
 
 		Vector3 targetDir = (flatPos - transform.position.SetY(0)).normalized;
-		print(targetDir.y);
 		if(model != null) {
 			model.TargetDirection = targetDir;
-			Debug.DrawRay(model.transform.position,targetDir * 10);
+			//Debug.DrawRay(model.transform.position,targetDir * 10);
 		}
 
 		Vector3 target;
@@ -43,13 +44,24 @@ public class PlayerAim : MonoBehaviour {
 
 		for(int i = 0; i < 2; i++) {
 			Transform mount = WeaponMounts[i];
-			mount.LookAt(target);
+			mount.LookAt(target, mount.up);
 		}
 
-		if(Input.GetMouseButton(0)) {
+		if(Input.GetMouseButtonDown(0)) {
+			float kickback = 0;
+			foreach(Weapon weapon in Weapons) {
+				kickback += weapon.Kickback;
+			}
+			GetComponent<PlayerMove>().Influence(-targetDir * kickback);
+			for(int i = 0; i < 2; i++) {
+				Transform mount = WeaponMounts[i];
+				mount.LookAt(target,mount.up);
+			}
 			foreach(Weapon weapon in Weapons) {
 				weapon.Fire();
 			}
+
+			FindObjectOfType<CameraFollow>().SetShake(-targetDir);
 		}
 	}
 }
