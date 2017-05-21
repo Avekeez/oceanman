@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon	: MonoBehaviour {
+public class Weapon : MonoBehaviour {
 	WeaponExit[] ExitPoints;
-	
-	public virtual void Awake () {
+
+	public virtual void Awake() {
 		ExitPoints = transform.GetComponentsInChildren<WeaponExit>();
 	}
-	public virtual void Fire () { }
-	
-	public WeaponExit getExit () {
+	public virtual void Fire() { }
+
+	public WeaponExit getExit() {
 		//TODO everything
 		return ExitPoints[0];
 	}

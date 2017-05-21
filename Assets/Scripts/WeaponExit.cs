@@ -6,7 +6,7 @@ public class WeaponExit : MonoBehaviour {
 	public ExitType Type;
 	[Tooltip("Represents the index of the exit, only considered with sequential")]
 	public int Index = -1;
-	
+
 	public Vector3 Origin {
 		get {
 			return transform.position;

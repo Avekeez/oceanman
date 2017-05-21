@@ -6,6 +6,6 @@ public class PlayerModel : MonoBehaviour {
 	public Vector3 TargetDirection;
 	
 	void LateUpdate () {
-		transform.rotation = Quaternion.LookRotation (Vector3.Slerp (transform.forward, TargetDirection, 6 * Time.deltaTime));
+		transform.rotation = Quaternion.LookRotation (Vector3.Slerp (transform.forward, TargetDirection, 18 * Time.deltaTime));
 	}
 }

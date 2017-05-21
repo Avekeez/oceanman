@@ -1,7 +1,7 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "oceanman", "Assembly-CSharp.csproj", "{5A9F36AA-20F5-E70A-BFD8-4DC74E05799F}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "oceanman", "oceanman.csproj", "{4578A64E-D0EC-7056-EC95-3314B442E454}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,15 +9,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5A9F36AA-20F5-E70A-BFD8-4DC74E05799F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5A9F36AA-20F5-E70A-BFD8-4DC74E05799F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5A9F36AA-20F5-E70A-BFD8-4DC74E05799F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5A9F36AA-20F5-E70A-BFD8-4DC74E05799F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4578A64E-D0EC-7056-EC95-3314B442E454}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4578A64E-D0EC-7056-EC95-3314B442E454}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4578A64E-D0EC-7056-EC95-3314B442E454}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4578A64E-D0EC-7056-EC95-3314B442E454}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal
