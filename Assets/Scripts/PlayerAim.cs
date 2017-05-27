@@ -50,7 +50,8 @@ public class PlayerAim : MonoBehaviour {
 		if(Input.GetMouseButtonDown(0)) {
 			float kickback = 0;
 			foreach(Weapon weapon in Weapons) {
-				kickback += weapon.Kickback;
+				if (weapon != null)
+					kickback += weapon.Kickback;
 			}
 			GetComponent<PlayerMove>().Influence(-targetDir * kickback);
 			for(int i = 0; i < 2; i++) {
@@ -58,10 +59,11 @@ public class PlayerAim : MonoBehaviour {
 				mount.LookAt(target,mount.up);
 			}
 			foreach(Weapon weapon in Weapons) {
-				weapon.Fire();
+				if (weapon != null)
+					weapon.Fire();
 			}
 
-			FindObjectOfType<CameraFollow>().SetShake(-targetDir);
+			FindObjectOfType<CameraFollow>().SetShake(-targetDir * kickback / 12f);
 		}
 	}
 }
