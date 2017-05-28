@@ -32,7 +32,7 @@ public class CameraFollow : MonoBehaviour {
 		transform.position += shakeDir * Mathf.Sin(shakeProgress * 12 * Mathf.PI) * (0.3f-shakeProgress) * 3;
 
 		if (shakeProgress < 0.3f) {
-			shakeProgress += Time.deltaTime;
+			shakeProgress += Time.deltaTime + (shakeProgress < 0 ? -shakeProgress : 0);
 		} else {
 			shakeProgress = 0.3f;
 		}
@@ -41,5 +41,9 @@ public class CameraFollow : MonoBehaviour {
 	public void SetShake(Vector3 Direction) {
 		shakeDir = Direction;
 		shakeProgress = 0;
+	}
+	public void AddShake(Vector3 Direction) {
+		shakeDir = Direction;
+		shakeProgress -= 0.3f;
 	}
 }

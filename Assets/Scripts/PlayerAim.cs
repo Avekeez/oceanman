@@ -63,7 +63,7 @@ public class PlayerAim : MonoBehaviour {
 					weapon.Fire();
 			}
 
-			FindObjectOfType<CameraFollow>().SetShake(-targetDir * kickback / 12f);
+			FindObjectOfType<CameraFollow>().AddShake(-targetDir * kickback / 12f);
 		}
 	}
 }
