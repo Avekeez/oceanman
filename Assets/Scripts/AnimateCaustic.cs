@@ -25,12 +25,12 @@ public class AnimateCaustic : MonoBehaviour {
 
 	void Update () {
 		float time = 0.5f * Mathf.Sin((2 * Mathf.PI) / Duration * (Time.time-Offset)) + 0.5f;
-        light.intensity = ColorGrad.Evaluate(time).a * 0.3f+0.1f;
+        light.intensity = ColorGrad.Evaluate(time).a * 0.5f+0.1f;
 		light.cookieSize = cookieSize * (1 + Mathf.Cos(time + Offset * 5) * 0.01f);
 		if (light.intensity < 1e-4) {
 			transform.position = -MoveDirection * Random.value * 100;
 		}
 		transform.position += Speed * Time.deltaTime * MoveDirection;
-		transform.Rotate(Vector3.up * Time.deltaTime * RotationSpeed);
+		transform.Rotate(Vector3.up,Time.deltaTime * RotationSpeed, Space.World);
 	}
 }
