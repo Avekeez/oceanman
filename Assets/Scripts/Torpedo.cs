@@ -13,7 +13,7 @@ public class Torpedo : MonoBehaviour {
 	Transform Model;
 
 	void Awake () {
-		Model = transform.FindChild("Model");
+		Model = transform.Find("Model");
 	}
 
 	void Update () {
